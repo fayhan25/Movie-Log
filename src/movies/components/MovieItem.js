@@ -34,7 +34,10 @@ const MovieItem = props => {
     const closeDeleteModal = () => {
         setShowDelete(false)
     }
-
+    const removeSpace = (str) => {
+        str.replace(/\s/g, '')
+        return str;
+    }
     const deleteItem = async () => {
         setShowDelete(false);
         try{
@@ -90,7 +93,7 @@ const MovieItem = props => {
             <Modal 
                 title = {props.name} 
                 onClick = {closeImdbModal}
-                id = "exampleModal" 
+                id = {"Modal" + props.id}
                 ariaLabel="exampleModalLabel" 
                 body = {<ImdbMovie title = {props.name}/>}
             />}
@@ -104,7 +107,12 @@ const MovieItem = props => {
                             <Rating name = "half-rating-read" value={props.stars} readOnly/>
                         </div>
                         <div className="movie-item__actions">
-                            <Button className="btn-info" onClick={openImdbModal} data-bs-toggle="modal" data-bs-target="#exampleModal"> VIEW ON IMDB</Button>
+                            <Button 
+                                className="btn-info" 
+                                onClick={openImdbModal} data-bs-toggle="modal" 
+                                data-bs-target={"#Modal" + props.id }> 
+                                    VIEW ON IMDB
+                            </Button>
                             {auth.userId === props.creator && <Button> <Link to ={`/movies/${props.id}`} style={{textDecoration:'none', color: '#fff'}}>EDIT</Link></Button>}
                             {auth.userId === props.creator && <Button className="btn-danger" onClick = {openDeleteModal} data-bs-toggle="modal" data-bs-target="#deleteModalTarget">DELETE</Button>}
                         </div>
