@@ -80,7 +80,7 @@ const MovieItem = props => {
             />}
             {showDelete && 
             <Modal 
-                id = "deleteModalTarget" 
+                id = {"ModalDelete" + props.id}
                 ariaLabel="deleteModalTargetLabel" 
                 title = "Are you Sure?" 
                 onClick = {closeDeleteModal} 
@@ -114,7 +114,7 @@ const MovieItem = props => {
                                     VIEW ON IMDB
                             </Button>
                             {auth.userId === props.creator && <Button> <Link to ={`/movies/${props.id}`} style={{textDecoration:'none', color: '#fff'}}>EDIT</Link></Button>}
-                            {auth.userId === props.creator && <Button className="btn-danger" onClick = {openDeleteModal} data-bs-toggle="modal" data-bs-target="#deleteModalTarget">DELETE</Button>}
+                            {auth.userId === props.creator && <Button className="btn-danger" onClick = {openDeleteModal} data-bs-toggle="modal" data-bs-target={"#ModalDelete" + props.id}>DELETE</Button>}
                         </div>
                 </Card>
             </li>
