@@ -12,8 +12,8 @@ import ModalForError from "../../shared/components/UIElements/ModalForError";
 import Rating from '@mui/material/Rating';
 
 const MovieItem = props => {
-    const [showImdb, setShowImdb] = useState(true);
-    const [showDelete, setShowDelete] = useState(true);
+    const [showImdb, setShowImdb] = useState(false);
+    const [showDelete, setShowDelete] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(null);
     const [errorExists, setErrorExists] = useState(false);
@@ -34,10 +34,7 @@ const MovieItem = props => {
     const closeDeleteModal = () => {
         setShowDelete(false)
     }
-    const removeSpace = (str) => {
-        str.replace(/\s/g, '')
-        return str;
-    }
+
     const deleteItem = async () => {
         setShowDelete(false);
         try{
