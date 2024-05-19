@@ -39,10 +39,10 @@ const ImageUpload = props => {
         filePickerRef.current.click();
     }
     return (
-        <div className='form-control'>
+        <div className='form-control' style={{backgroundColor : "#9370DB"}}>
             <input id ={props.id} ref = {filePickerRef} style = {{display:"none"}} type='file' accept='.jpg, .jpeg, .png' onChange={onChangeHandler}/>
                 <div className={`image-upload ${props.center && 'center'}`}>
-                    <div className='image-upload__preview'>
+                    <div className='image-upload__preview' style={{backgroundColor: "white"}}>
                         {previewUrl && <img src= {previewUrl} alt='preview'/>}
                         {!previewUrl && <p>Please pick an Image</p>}
                     </div>

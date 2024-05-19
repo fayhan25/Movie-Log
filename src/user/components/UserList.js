@@ -1,6 +1,6 @@
 import React from "react";
 import "./UserList.css";
-
+import { Container, Col, Row } from "react-bootstrap";
 import UserItem from "./UserItem"
 
 const UserList = props => {
@@ -10,8 +10,12 @@ const UserList = props => {
         </div>
     }
 
-    return <ul>
+    return <Container>
+   
+    <ul>
+    <Row style={{ justifyContent: "center"}}>
         {props.items.map(users => (
+            <Col md = {4}>
             <UserItem
                 key = {users.id}
                 id = {users.id}
@@ -19,10 +23,13 @@ const UserList = props => {
                 genres = {users.genres}
                 name = {users.name}
                 reviewCount = {users.movies.length}
-
             />
+            </Col>
         ))}
+        </Row>
     </ul>
+
+    </Container>
 }
 
 export default UserList;

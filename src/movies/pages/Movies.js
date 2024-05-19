@@ -85,7 +85,7 @@ import ImageUpload from "../../shared/components/UIElements/ImageUpload";
           onClick = {errorHandler}
       />}
       {isLoading && <LoadingSpinner asOverLay/> }
-      <form className="place-form" onSubmit = {submitForm}>
+      <form className="movie-form" onSubmit = {submitForm}>
         <Input
           id="title"
           element="input"
@@ -113,7 +113,7 @@ import ImageUpload from "../../shared/components/UIElements/ImageUpload";
           onInput={inputHandler}
         /> 
 
-        <Button type="submit" disabled={!formState.isValid}>
+        <Button type="submit" disabled={!formState.isValid} style={{textAlign : "start"}}>
           ADD MOVIE
         </Button>
         {errorExists && <div data-bs-toggle="modal" data-bs-target="#errorModalTarget">Error Occured While Creating a Movie Click to see</div>}

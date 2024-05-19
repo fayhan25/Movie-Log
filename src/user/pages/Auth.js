@@ -8,6 +8,7 @@ import { AuthContext } from "../../shared/components/context/auth-context";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import ModalForError from "../../shared/components/UIElements/ModalForError";
 import ImageUpload from "../../shared/components/UIElements/ImageUpload";
+import './Auth.css'
 
 const Auth = props => {
     const [loggedIn, setIsLoggedIn] = useState(true);
@@ -111,7 +112,7 @@ const Auth = props => {
         setErrorExists(false);
       }
     return (
-        <React.Fragment>
+        <React.Fragment >
             {errorExists && <ModalForError                 
                 id = "errorModalTarget" 
                 ariaLabel="errorModalTargetLabel" 
@@ -119,9 +120,9 @@ const Auth = props => {
                 body = {isError}
                 onClick = {errorHandler}
                 />}
-            <Card>
+            <Card className = "auth-form" style={{backgroundColor:"#9370DB", width: "50%"}}>
                 {isLoading && <LoadingSpinner asOverLay/> }
-                <form className="form-submit" onSubmit={submitForm}>
+                <form className="form-submit" onSubmit={submitForm}  >
                     {!loggedIn && 
                     <Input
                         id="name"
@@ -158,7 +159,7 @@ const Auth = props => {
                     <Button type="submit" disabled={!formState.isValid}>
                         {loggedIn ? <div>LOGIN</div> : <div>SIGN UP</div>}
                     </Button>
-                    <Button onClick={loginMode}>SWITCH</Button>
+                    <Button onClick={loginMode}>{loggedIn ? <div>SIGN UP</div> : <div>LOGIN</div>}</Button>
                     {errorExists && <div data-bs-toggle="modal" data-bs-target="#errorModalTarget">Error Occured Click to see</div>}
                 </form>
             </Card>

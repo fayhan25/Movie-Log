@@ -108,6 +108,7 @@ const Input = props => {
     <div
       className={`form-control ${!inputState.isValid && inputState.isTouched &&
         'form-control--invalid'}`}
+        style={{backgroundColor: "#9370DB"}}
     >
       <label htmlFor={props.id}>{props.label}</label>
       {element}
