@@ -50,7 +50,7 @@ import ImageUpload from "../../shared/components/UIElements/ImageUpload";
         formData.append('stars',formState.inputs.rating.value );
         formData.append('image',formState.inputs.image.value );
         
-        const response = await fetch('http://localhost:5000/api/movies',{
+        const response = await fetch(`${process.env.REACT_APP_URL}/movies`,{
             method: 'POST',
             headers: {
               Authorization : 'Bearer ' + auth.token

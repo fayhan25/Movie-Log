@@ -59,7 +59,7 @@ const Auth = props => {
         if (loggedIn){
             try{
                 setIsLoading(true);
-                const response = await fetch('http://localhost:5000/api/users/login',{
+                const response = await fetch(`${process.env.REACT_APP_URL}/users/login`,{
                     method: 'post',
                     headers: {
                         'Content-Type' : 'application/json'    
@@ -89,7 +89,7 @@ const Auth = props => {
                 formData.append('email', formState.inputs.email.value)
                 formData.append('password', formState.inputs.password.value)
                 formData.append('image', formState.inputs.image.value)
-                const response = await fetch('http://localhost:5000/api/users/signup',{
+                const response = await fetch(`${process.env.REACT_APP_URL}/users/signup`,{
                     method: 'POST',
                     body: formData
                 })

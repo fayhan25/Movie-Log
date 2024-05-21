@@ -40,7 +40,7 @@ const UpdateMovies = props => {
         const getUpdateMovie =async () =>{
           try{
             setIsLoading(true);
-            const response = await fetch(`http://localhost:5000/api/movies/${movieId}`)
+            const response = await fetch(`${process.env.REACT_APP_URL}/movies/${movieId}`)
             const responseData = await response.json();
             if (!response.ok){
                 throw new Error(responseData.message);
@@ -76,7 +76,7 @@ const UpdateMovies = props => {
           
             try{
               setIsLoading(true);
-              const response = await fetch(`http://localhost:5000/api/movies/${movieId}`,{
+              const response = await fetch(`${process.env.REACT_APP_URL}/movies/${movieId}`,{
                   method: 'PATCH',
                   headers: {
                       'Content-Type' : 'application/json',

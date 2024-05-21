@@ -17,7 +17,7 @@ const UserMovies = () => {
         const moviesById = async () =>{     
             try{
                 setIsLoading(true);
-                const response = await fetch(`http://localhost:5000/api/movies/user/${userId}`)
+                const response = await fetch(`${process.env.REACT_APP_URL}/movies/user/${userId}`)
                 const responseData = await response.json();
                 if (!response.ok){
                     throw new Error(responseData.message);

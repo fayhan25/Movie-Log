@@ -1,0 +1,8 @@
+{
+    "env" : {
+        "DB_USER" : "halimay25",
+        "DB_PASSWORD" : "abuziddin",
+        "DB_NAME" : "movies",
+        "JWT_TOKEN" : "super-secret-dont-share"
+    }
+}

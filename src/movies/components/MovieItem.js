@@ -40,7 +40,7 @@ const MovieItem = props => {
         try{
             setIsLoading(true);
             const response = await fetch(
-                `http://localhost:5000/api/movies/${props.id}`,{
+                `${process.env.REACT_APP_URL}/movies/${props.id}`,{
                  method: 'DELETE',
                  headers: {Authorization : 'Bearer ' + auth.token}
                 },                 
@@ -97,7 +97,7 @@ const MovieItem = props => {
 
             <li className="movie-item">
                 <Card className="movie-item__content" >
-                        <img className = "card-image" src = {`http://localhost:5000/${props.image}`} alt = {props.name}/>
+                        <img className = "card-image" src = {`${process.env.REACT_APP_ASSET_URL}/${props.image}`} alt = {props.name}/>
                         <div  className= "movie-item__info" >
                             <h2>{props.name}</h2>
                             <p>{props.review}</p>

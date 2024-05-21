@@ -14,7 +14,7 @@ const ImdbMovie = props => {
             url: 'https://online-movie-database.p.rapidapi.com/auto-complete',
             params: {q: props.title},
             headers: {
-              'X-RapidAPI-Key': '71137ee64emshfaff1c5f23af3fbp13adb4jsn0192ebcd440e',
+              'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
               'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
             }
           };
@@ -23,7 +23,7 @@ const ImdbMovie = props => {
             url: 'https://online-movie-database.p.rapidapi.com/title/get-ratings',
             params: {tconst: movieId},
             headers: {
-              'X-RapidAPI-Key': '71137ee64emshfaff1c5f23af3fbp13adb4jsn0192ebcd440e',
+              'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
               'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
             }
           };
