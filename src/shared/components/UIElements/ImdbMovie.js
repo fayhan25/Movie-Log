@@ -7,7 +7,7 @@ const ImdbMovie = props => {
     const [movieId, setMovieId] = useState();
     const [imdbImage, setImdbImage] = useState();
     const [imdbRating, setImdbRating] = useState();
-
+    const [imdbStars, setImdbStars] = useState();
     useEffect(()=>{
         const options = {
             method: 'GET',
@@ -30,8 +30,9 @@ const ImdbMovie = props => {
     
         const getMovie = async () => {            
             await axios.request(options).then(function (response) {
-                setMovieId(response.data.d[1].id);
-                setImdbImage(response.data.d[1].i.imageUrl);
+                setMovieId(response.data.d[0].id);
+                setImdbImage(response.data.d[0].i.imageUrl);
+                setImdbStars(response.data.d[0].s)
             }).catch(function (error) {
             console.error(error);
             });}
@@ -54,9 +55,13 @@ const ImdbMovie = props => {
                 src = {imdbImage}
                  alt = {props.title}     
             />
+
             <div className="imdb-main_info">
                 <h5>
-                User Rating : {imdbRating}
+                    Stars : {imdbStars}
+                </h5>
+                <h5>
+                    User Rating : {imdbRating}
                 </h5>
             </div>
 
